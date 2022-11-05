@@ -1,0 +1,21 @@
+@use '../utils/functions' as f;
+@use '../utils/breakpoints' as bp;
+
+header {
+    width: 90%;
+    margin-inline: auto;
+    padding: f.rem(24) 0 0;
+    margin-bottom: f.rem(32);
+    img {
+        width: f.rem(200);
+    }
+
+    @include bp.breakpointMin(large) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 90%;
+        padding: f.rem(40) 0 0 0;
+    }
+}

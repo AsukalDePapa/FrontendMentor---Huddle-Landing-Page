@@ -1,0 +1,129 @@
+@use '../utils/functions' as f;
+@use '../utils/breakpoints' as bp;
+
+main {
+    width: min(90%, f.rem(370));
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    // background-color: rgba(255, 0, 0, 0.473);
+
+    @include bp.breakpointMin(large) {
+        margin-top: f.rem(100);
+        width: 90%;
+        grid-template-columns: 50% 50%;
+    }
+
+    @include bp.breakpointMin(xlarge) {
+        max-width: f.rem(1500);
+    }
+}
+
+.top-article {
+    margin-bottom: f.rem(32);
+    img {
+        width: 100%;
+        height: f.rem(300);
+    }
+
+    @include bp.breakpointMin(large) {
+        img {
+
+            height: 500px;
+        }
+    }
+}
+
+.bottom-article {
+    text-align: center;
+    color: white;
+    padding: f.rem(16);
+     
+    h1 {
+        margin-bottom: f.rem(24);
+    }
+    
+    p {
+        margin-bottom: f.rem(32);
+        line-height: 1.5;
+    }
+
+    button {
+        color: var(--btn-txt-clr);
+        background-color: var(--btn-bg-clr);
+        border: none;
+        width: 70%;
+        padding: f.rem(12) 0;
+        border-radius: f.rem(50);
+        margin-bottom: f.rem(32);
+        cursor: pointer;
+        transition: color 1s ease;
+        // transition: background-color 1s ease;
+
+        &:hover {
+            color: var(--btn-hover-txt-clr);
+            background-color: var(--btn-hover-clr);
+        }
+    }
+
+    .socials {
+        margin-bottom: f.rem(48);
+        ul {
+            display: flex;
+            justify-content: center;
+            gap: f.rem(16);
+
+            .fa-brands {
+                color: var(--socials-clr);
+                border: var(--socials-border);
+                align-self: center;
+                justify-self: center;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;       
+                display: flex;    
+                justify-content: center;
+                align-items: center;
+
+                &:hover {
+                    color: var(--socials-hover-clr);
+                    border: var(--socials-border-hover);
+                }
+            }
+        }
+    }
+
+    @include bp.breakpointMin(large) {
+        text-align: left;
+        padding: f.rem(24) f.rem(32);
+
+        h1 {
+            font-size: f.rem(32);
+            margin-bottom: f.rem(32);
+        }
+
+        p {
+            margin-bottom: f.rem(32);
+        }
+
+        button {
+            width: 40%;
+        }
+
+        .socials {
+            position: absolute;
+            bottom: 0;
+            right: 5%;
+        }
+    }
+
+    @include bp.breakpointMin(xlarge){
+        h1 {
+            font-size: f.rem(48);
+        }
+
+        p {
+            font-size: f.rem(20);
+        }
+    }
+}
